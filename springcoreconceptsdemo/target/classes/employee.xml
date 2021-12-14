@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+	<!-- Read The Data.Properties File -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="data.properties" />
+	</bean>
+
+
+	<!-- Using Constructor And Setter Injection Concept -->
+
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="111111" p:name="Akash 
+		Ronad" p:salary="456.77"> -->
+	<!-- <property name="id" value="11111"></property> -->
+	<!-- <property name="name" value="Akash Ronad"></property> -->
+	<!-- <property name="salary" value="24.77"></property> -->
+
+	<!-- <constructor-arg index="0" value="11111"></constructor-arg> -->
+	<!-- <constructor-arg index="1" value="Akash Ronad"></constructor-arg> -->
+	<!-- <constructor-arg index="2" value="23.44"></constructor-arg> -->
+	<!-- </bean> -->
+
+	<!-- Using Ref Tag Attateched Other Object Using Seeter Injection = AutoWiring -->
+
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="11111" -->
+	<!-- p:name="Akash Ronad" p:salary="234.55" init-method="init" -->
+	<!-- destroy-method="destroy" > -->
+	<!-- <property name="address" ref="address"></property> -->
+	<!-- </bean> -->
+	<!-- <bean id="address" class="com.app.model.Address" -->
+	<!-- p:pincode="582209" p:street="Sp office" p:houseNumber="f-123" -->
+	<!-- p:city="gadag" lazy-init="true"> -->
+	<!-- </bean> -->
+
+	<!-- Abstract Class Using -->
+	<!-- <bean id="teacher" class="com.app.model.Teacher" abstract="true"></bean> -->
+
+
+	<!-- Inner Bean Using Set AutoWiring & Also Set Data From Data.property 
+		File -->
+
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="${id}" -->
+	<!-- p:name="${name}" p:salary="${salary}"> -->
+	<!-- <property name="address"> -->
+	<!-- <bean class="com.app.model.Address" p:pincode="${pincode}" -->
+	<!-- p:street="${street}" p:houseNumber="${housenumber}" p:city="${city}"></bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+
+	<!-- Autowiring By Ref Tag -->
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="${id}" -->
+	<!-- p:name="${name}" p:salary="${salary}"> -->
+	<!-- <property name="address" ref="address"> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="address" class="com.app.model.Address" -->
+	<!-- p:pincode="${pincode}" p:street="${street}" -->
+	<!-- p:houseNumber="${housenumber}" p:city="${city}"></bean> -->
+
+
+
+	<!-- Auto wiring By autowire=byname Tag -->
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="${id}" -->
+	<!-- p:name="${name}" p:salary="${salary}" autowire="byName"> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="address" class="com.app.model.Address" -->
+	<!-- p:pincode="${pincode}" p:street="${street}" -->
+	<!-- p:houseNumber="${housenumber}" p:city="${city}"></bean> -->
+
+
+
+	<!-- Auto wiring By autowire=byType Tag -->
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="${id}" -->
+	<!-- p:name="${name}" p:salary="${salary}" autowire="byType"> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="address" class="com.app.model.Address" -->
+	<!-- p:pincode="${pincode}" p:street="${street}" -->
+	<!-- p:houseNumber="${housenumber}" p:city="${city}"></bean> -->
+
+
+	<!-- Auto wiring By autowire=constructor Tag -->
+	<!-- <bean id="employee" class="com.app.model.Employee" p:id="${id}" -->
+	<!-- p:name="${name}" p:salary="${salary}" autowire="constructor"> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="address" class="com.app.model.Address" p:pincode="${pincode}" -->
+	<!-- p:street="${street}" p:houseNumber="${housenumber}" p:city="${city}"></bean> -->
+	
+	<!-- One To Many mapping Using Spring -->
+
+	<bean id="employee" class="com.app.model.Employee" p:id="${id}"
+		p:name="${name}" p:salary="${salary}">
+		<property name="address" ref="address">
+		</property>
+	</bean>
+
+	<bean id="employee1" class="com.app.model.Employee" p:id="${id}"
+		p:name="${name}" p:salary="${salary}">
+		<property name="address" ref="address">
+		</property>
+	</bean>
+
+	<bean id="address" class="com.app.model.Address"
+		p:pincode="${pincode}" p:street="${street}"
+		p:houseNumber="${housenumber}" p:city="${city}"></bean>
+
+	<bean id="department" class="com.app.model.Department"
+		p:id="${did}" p:dname="${dname}">
+		<property name="employees">
+			<list>
+				<ref bean="employee1" />
+				<ref bean="employee" />
+
+			</list>
+
+		</property>
+
+	</bean>
+
+
+
+
+
+
+
+
+
+
+</beans>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
