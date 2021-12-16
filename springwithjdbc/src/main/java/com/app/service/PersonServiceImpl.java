@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.DAO.PersonDao;
+import com.app.exception.ApplicationException;
 import com.app.model.Person;
 
 @Service("personService")
@@ -15,27 +16,61 @@ public class PersonServiceImpl implements PersonService {
 	PersonDao personDao;
 
 	@Override
-	public void addPerson(Person person) {
-		personDao.addPerson(person);
+	public boolean addPerson(Person person) throws ApplicationException {
+		boolean addStatus = false;
+
+		if (person != null) {
+			addStatus = personDao.addPerson(person);
+
+		} else {
+			throw new ApplicationException("Data Valiadtion Is Failed");
+
+		}
+		return addStatus;
 
 	}
 
 	@Override
-	public void editPerson(Person person, int personId) {
-		personDao.editPerson(person, personId);
+	public boolean editPerson(Person person, int personId) throws ApplicationException {
+		boolean editStatus = false;
+
+		if (person != null && personId > 0) {
+			editStatus = personDao.editPerson(person, personId);
+
+		} else {
+			throw new ApplicationException("Data Validation Is Failed");
+
+		}
+
+		return editStatus;
 
 	}
 
 	@Override
-	public void deletePerson(int personId) {
-		personDao.deletePerson(personId);
+	public boolean deletePerson(int personId) throws ApplicationException {
+		boolean deleteStatus = false;
+		if (personId > 0) {
+			deleteStatus = personDao.deletePerson(personId);
+		} else {
+			throw new ApplicationException("Data Validation Is Failed");
+		}
+
+		return deleteStatus;
 
 	}
 
 	@Override
-	public Person find(int personId) {
+	public Person find(int personId) throws ApplicationException {
 
-		return personDao.find(personId);
+		Person person = null;
+		if (personId > 0) {
+			person = personDao.find(personId);
+		} else {
+			throw new ApplicationException("Data Validation Is Failed");
+
+		}
+
+		return person;
 	}
 
 	@Override

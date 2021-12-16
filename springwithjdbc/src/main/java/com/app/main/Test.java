@@ -1,11 +1,13 @@
 package com.app.main;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import com.app.configuration.ApplicationConfig;
+import com.app.exception.ApplicationException;
 import com.app.model.Person;
 import com.app.service.PersonService;
 
@@ -16,41 +18,123 @@ public class Test {
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
 		PersonService personService = context.getBean("personService", PersonService.class);
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("1 For Insert , 2 For Edit , 3 For Delete ,4 For Find All, 5 For Find By ID");
+		int userInput = scanner.nextInt();
 
-		Person personAkash = new Person(11111, "Akash", "Ronad", 24);
-		Person personLaxmi = new Person(22222, "Laxmi", "Paraddi", 27);
-		Person personArun = new Person(33333, "Arun", "N", 29);
+		switch (userInput) {
+		case 1:
+			System.out.println("How Many Person Data You Want To Add Into Data Base ? ");
+			int number = scanner.nextInt();
 
-		personService.addPerson(personAkash);
-		personService.addPerson(personLaxmi);
-		personService.addPerson(personArun);
+			for (int i = 1; i <= number; i++) {
+				System.out.println("Enter Person Id");
+				int personId = scanner.nextInt();
+				System.out.println("Enter Person First Name");
+				String firstName = scanner.next();
+				System.out.println("Enter Person Last Name");
+				String lastName = scanner.next();
+				System.out.println("Enter Person Age");
+				int age = scanner.nextInt();
 
-		System.out.println("Find All");
-		List<Person> persons = personService.findAll();
+				Person person = new Person(personId, firstName, lastName, age);
 
-		for (Person person2 : persons) {
-			System.out.println(person2);
+				try {
+					boolean data = personService.addPerson(person);
+					if (data) {
+						System.out.println("Person Added !!!!!");
+					} else {
+						System.out.println("Person Not Added !!!!!");
+					}
+				} catch (ApplicationException e) {
+					System.err.println(e.getMessage());
+				}
 
+			}
+
+			break;
+
+		case 2:
+			System.out.println("Enter Person Id");
+			int personId = scanner.nextInt();
+			System.out.println("Enter Person First Name");
+			String firstName = scanner.next();
+			System.out.println("Enter Person Last Name");
+			String lastName = scanner.next();
+			System.out.println("Enter Person Age");
+			int age = scanner.nextInt();
+
+			Person person = new Person(personId, firstName, lastName, age);
+
+			try {
+				boolean data = personService.editPerson(person, personId);
+				if (data) {
+					System.out.println("Person Data Upadted !!!!");
+				} else {
+					System.out.println("Person Data Not Upadted !!!!");
+				}
+			} catch (ApplicationException e) {
+				System.err.println(e.getMessage());
+			}
+
+			break;
+
+		case 3:
+			System.out.println("Enter Person Id");
+			int personId_one = scanner.nextInt();
+			try {
+				boolean data = personService.deletePerson(personId_one);
+				if (data) {
+					System.out.println("Deleted !!!!!");
+				} else {
+					System.out.println("Not Deleted !!!!!");
+				}
+			} catch (ApplicationException e) {
+				System.err.println(e.getMessage());
+			}
+
+			break;
+
+		case 4:
+			System.out.println("Find All");
+			List<Person> persons = personService.findAll();
+			if (persons.size() > 0) {
+				for (Person person2 : persons) {
+					System.out.println(person2);
+
+				}
+
+			} else {
+				System.out.println("No Person Record In DB");
+			}
+
+			break;
+
+		case 5:
+			System.out.println("Enter Person Id");
+			int personId_two = scanner.nextInt();
+
+			Person person_two;
+			try {
+				person_two = personService.find(personId_two);
+				if (person_two != null) {
+					System.out.println(person_two);
+				} else {
+					System.out.println("Checking Your Passing Id");
+				}
+
+			} catch (ApplicationException e) {
+				System.err.println(e.getMessage());
+			}
+
+			break;
+
+		default:
+			break;
 		}
 
-		System.out.println("Delete the Arun");
-		int deleteMe = 33333;
-		personService.deletePerson(deleteMe);
-
-		personLaxmi.setAge(30);
-		personLaxmi.setFirstName("GURU");
-		personLaxmi.setLastName("HS");
-
-		System.out.println("Upadted Person Laxmi");
-		int upadteMe = 22222;
-		personService.editPerson(personLaxmi, upadteMe);
-
-		System.out.println("Find person id=2");
-
-		Person person = personService.find(22222);
-		System.out.println(person);
-
 		context.close();
+		scanner.close();
 
 	}
 
