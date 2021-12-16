@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+
+	<!-- Annotation based Wirining -->
+	<!-- <context:annotation-config></context:annotation-config> -->
+
+
+
+
+
+	<!-- Read The Data.Properties File -->
+	<!-- <bean -->
+	<!-- class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+	<!-- <property name="locations" value="data.properties" /> -->
+	<!-- </bean> -->
+
+
+	<!-- Annotation Using @Autowired using Setter field && the property field 
+		&& The Constructor field -->
+	<!-- <bean id="author2" class="com.app.model.Author" p:name="Sharanam" -->
+	<!-- p:address="Pune"></bean> -->
+
+	<!-- <bean id="author1" class="com.app.model.Author" p:name="Shah" -->
+	<!-- p:address="Gadag"></bean> -->
+
+	<!-- <bean id="book" class="com.app.model.Book" -->
+	<!-- p:isbn="978-93-5023-690-1" p:year="2019"></bean> -->
+
+
+	<!-- Auto Scanning -->
+	<context:component-scan
+	base-package="com.app.model"></context:component-scan>
+
+	<!-- Auto Scanning using include-filter and exclude-filter -->
+	<!-- <context:component-scan base-package="com.app"> -->
+	<!-- <context:include-filter type="regex" -->
+	<!-- expression="com.app.mix.*DAO.*" /> -->
+	<!-- <context:include-filter type="regex" -->
+	<!-- expression="com.app.mix.*Service.*" /> -->
+
+	<!-- </context:component-scan> -->
+
+	<!-- <context:component-scan base-package="com.app"> -->
+	<!-- <context:exclude-filter type="regex" -->
+	<!-- expression="com.app.mix.*DAO.*" /> -->
+	<!-- </context:component-scan> -->
+
+	<!-- <context:component-scan base-package="com.app"> -->
+	<!-- <context:include-filter type="regex" expression="com.app.mix.*Service.*"/> -->
+	<!-- </context:component-scan> -->
+
+	<!-- without Using Autowired @required And @postConstruct And @PreDestroy 
+		Example -->
+	<!-- <bean id="book" class="com.app.model.Book" p:isbn="12345678"
+		p:year="2011">
+
+
+	</bean>
+
+	<bean id="author" class="com.app.model.Author" p:name="Sharanam"
+		p:address="Gadag"></bean>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+</beans>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
