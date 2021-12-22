@@ -1,0 +1,12 @@
+2021-12-22 16:04:06.965 [main] DEBUG log4j.App - We've just greeted the user!
+2021-12-22 16:04:06.966 [main] INFO  log4j.App - We've just greeted the user!
+2021-12-22 16:04:06.966 [main] WARN  log4j.App - We've just greeted the user!
+2021-12-22 16:04:06.966 [main] ERROR log4j.App - We've just greeted the user!
+2021-12-22 16:04:06.967 [main] FATAL log4j.App - We've just greeted the user!
+2021-12-22 16:14:28.636 [main] INFO  log4j.App - Main Method START
+2021-12-22 16:14:28.638 [main] INFO  log4j.App - Object HasCode1856158867
+2021-12-22 16:14:28.638 [main] INFO  com.app.method.Calculator - Method START
+2021-12-22 16:14:28.638 [main] INFO  com.app.method.Calculator - Method Varibale Paramaters4 6
+2021-12-22 16:14:28.638 [main] INFO  com.app.method.Calculator - Method END
+2021-12-22 16:14:28.638 [main] INFO  log4j.App - Method add() Resturn value10
+2021-12-22 16:14:28.638 [main] INFO  log4j.App - Main Method END
