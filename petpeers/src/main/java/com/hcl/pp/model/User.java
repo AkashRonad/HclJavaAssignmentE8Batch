@@ -6,11 +6,18 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.lang.NonNull;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "PET_USER")
@@ -22,15 +29,23 @@ public class User implements Serializable {
 	private long id;
 
 	@Column(name = "USER_NAME")
+	@NonNull
+	@NotEmpty(message = "Please Enter UserName")
 	private String userName;
 
 	@Column(name = "USER_PASSWORD")
+	@NonNull
+	@NotEmpty(message = "Please Enter UserPassword")
 	private String userPassword;
 
-	// @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-	// CascadeType.DETACH, CascadeType.REFRESH })
+	@Transient
+	@NonNull
+	@NotEmpty(message = "Please Enter ConfirmPassword")
+	private String confirmPassword;
+
 	@OneToMany(mappedBy = "owner", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
-			CascadeType.REFRESH })
+			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JsonManagedReference
 	private Set<Pet> pets;
 
 	public User() {
@@ -75,6 +90,14 @@ public class User implements Serializable {
 
 	public void setPets(Set<Pet> pets) {
 		this.pets = pets;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 }

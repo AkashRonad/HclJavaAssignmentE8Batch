@@ -18,23 +18,6 @@ public class PetServiceImpl implements PetService {
 	public String savePet(Pet pet) {
 
 		String statusSavePet = null;
-
-		if (pet == null) {
-			statusSavePet = "Validation Is Failed Not Except Empty Object";
-		}
-
-		if (pet.getName() == null) {
-			statusSavePet = "Validation Is Failed Not Except Empty PetName";
-
-		}
-
-		if (pet.getPlace() == null) {
-			statusSavePet = "Validation Is Failed Not Except Empty PetPlace";
-		}
-
-		if (pet.getAge() == 0) {
-			statusSavePet = "Validation Is Failed Not Except PetAge Zero";
-		}
 		if (pet != null && pet.getName() != null && pet.getPlace() != null && pet.getAge() > 0) {
 
 			statusSavePet = petDAO.savePet(pet);

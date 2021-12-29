@@ -12,8 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.lang.NonNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "PETS")
@@ -25,18 +28,23 @@ public class Pet implements Serializable {
 	private long id;
 
 	@Column(name = "PET_NAME")
+	@NonNull
+	@NotEmpty(message = "Please Enter PetName")
 	private String name;
 
 	@Column(name = "PET_AGE")
+	@NonNull
+	@NotEmpty(message = "Please Enter PetAge")
 	private int age;
 
 	@Column(name = "PET_PLACE")
+	@NonNull
+	@NotEmpty(message = "Please Enter PetPlace")
 	private String place;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH })
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "PET_OWNERID")
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@JsonBackReference
 	private User owner;
 
 	public Pet() {
@@ -82,6 +90,14 @@ public class Pet implements Serializable {
 
 	public void setPlace(String place) {
 		this.place = place;
+	}
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
 }

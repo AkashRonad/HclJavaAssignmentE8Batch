@@ -21,6 +21,8 @@ public interface UserDAO {
 
 	public abstract User findByUserName(String username);
 
+	public abstract String loginApp(String userName, String password);
+
 	public abstract int buyPet(long userId, long petId);
 
 	public abstract String deleteUser(long userId);

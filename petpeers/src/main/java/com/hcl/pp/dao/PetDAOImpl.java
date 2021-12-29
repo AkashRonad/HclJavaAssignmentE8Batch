@@ -39,7 +39,7 @@ public class PetDAOImpl implements PetDAO {
 	@Override
 	public List<Pet> getAllPets() {
 
-		return petRepository.findAll();
+		return petRepository.findAllRecord();
 	}
 
 	@Override

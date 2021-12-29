@@ -24,27 +24,16 @@ public class UserServiceImpl implements UserService {
 		LOGGER.info("UsersController addUser Method Requset Comes Into UserServiceImpl Layer"
 				+ "UserServiceImpl addUser Method Start");
 		String statusAddUser = null;
+		if (user.getUserPassword().equals(user.getConfirmPassword())) {
+			if (user != null && user.getUserName() != null && user.getUserPassword() != null) {
 
-		if (user == null) {
-			statusAddUser = "Validation Is Failed Not Except Empty Object";
-			LOGGER.info("Validation Is Failed Not Except Empty Object");
-		}
+				statusAddUser = userDAO.addUser(user);
+				LOGGER.info("UserDAOInterface addUser Method Return Result Is" + statusAddUser);
 
-		if (user.getUserName() == null) {
-			statusAddUser = "Validation Is Failed Not Except Empty UserName";
-			LOGGER.info("Validation Is Failed Not Except Empty UserName");
-
-		}
-
-		if (user.getUserPassword() == null) {
-			statusAddUser = "Validation Is Failed Not Except Empty UserPassword";
-			LOGGER.info("Validation Is Failed Not Except Empty UserPassword");
-
-		}
-		if (user != null && user.getUserName() != null && user.getUserPassword() != null) {
-
-			statusAddUser = userDAO.addUser(user);
-			LOGGER.info("UserDAOInterface addUser Method Return Result Is" + statusAddUser);
+			}
+		} else {
+			statusAddUser = "plz check confirm password is same as userpassword ";
+			LOGGER.info("plz check confirm password is same as userpassword ");
 
 		}
 
@@ -172,6 +161,21 @@ public class UserServiceImpl implements UserService {
 		}
 		LOGGER.info("UserServiceImpl getMyPets Method End");
 		return pets;
+	}
+
+	@Override
+	public String loginApp(String userName, String password) {
+
+		String loginStatus = "";
+		LOGGER.info("UsersController loginUserOne Method Requset Comes Into UserServiceImpl Layer"
+				+ "UserServiceImpl loginApp Method Start");
+
+		loginStatus = userDAO.loginApp(userName, password);
+		LOGGER.info("UserDAOInterface loginApp Method Return Result");
+
+		LOGGER.info("UserServiceImpl loginApp Method End");
+
+		return loginStatus;
 	}
 
 }

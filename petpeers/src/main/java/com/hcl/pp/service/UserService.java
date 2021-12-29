@@ -26,5 +26,7 @@ public interface UserService {
 	public abstract String deleteUser(long userId);
 
 	public abstract List<Pet> getMyPets(long userId);
+	
+	public abstract String loginApp(String userName, String password);
 
 }

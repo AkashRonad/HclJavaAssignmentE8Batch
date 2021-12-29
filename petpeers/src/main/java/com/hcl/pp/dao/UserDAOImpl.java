@@ -140,7 +140,7 @@ public class UserDAOImpl implements UserDAO {
 
 		if (user != null) {
 
-			pets = petRepository.findAll();
+			pets = petRepository.findAllRecord();
 			LOGGER.info("Pet Data Get Into DataBase");
 
 		}
@@ -218,6 +218,26 @@ public class UserDAOImpl implements UserDAO {
 		LOGGER.info("UserDAOImpl getMyPets Method End");
 
 		return petRepository.findByUserId(userId);
+	}
+
+	@Override
+	public String loginApp(String userName, String password) {
+
+		LOGGER.info("UsersController loginUserOne Method Requset Comes Into UserDAOImpl Layer"
+				+ "UserDAOImpl loginApp Method Start");
+		String loginStatus = null;
+
+		User user = userRepository.findByNameAndPassword(userName, password);
+
+		if (user != null) {
+			loginStatus = "Login Successful";
+			LOGGER.info("Login Successful");
+
+		}
+
+		LOGGER.info("UserDAOImpl loginApp Method End");
+
+		return loginStatus;
 	}
 
 }
