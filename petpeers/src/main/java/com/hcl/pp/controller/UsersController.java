@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hcl.exception.AppliactionException;
 import com.hcl.pp.model.Pet;
 import com.hcl.pp.model.ResponseMessage;
 import com.hcl.pp.model.User;
@@ -37,13 +38,19 @@ public class UsersController {
 	@PostMapping(value = "/user/add")
 	public ResponseEntity<ResponseMessage> addUser(@Valid @RequestBody User user) {
 		LOGGER.info(" Client Send The Requset" + " " + "URL" + "/user/add" + "addUserMethod Start");
-		String addStatus = userService.addUser(user);
-		ResponseMessage responseMessage = new ResponseMessage();
-		responseMessage.setMessage(addStatus);
-		LOGGER.info("UserServiceInterface addUser Method Return Result Is" + addStatus);
-		ResponseEntity<ResponseMessage> responseEntity = new ResponseEntity<ResponseMessage>(responseMessage,
-				HttpStatus.CREATED);
-		LOGGER.info("UsersController addUser Method End");
+		String addStatus = null;
+		ResponseEntity<ResponseMessage> responseEntity = null;
+		try {
+			addStatus = userService.addUser(user);
+			ResponseMessage responseMessage = new ResponseMessage();
+			responseMessage.setMessage(addStatus);
+			LOGGER.info("UserServiceInterface addUser Method Return Result Is" + addStatus);
+			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.CREATED);
+			LOGGER.info("UsersController addUser Method End");
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
+		}
+
 		return responseEntity;
 
 	}
@@ -55,21 +62,27 @@ public class UsersController {
 				+ "loginUser Start");
 		List<Pet> pets = null;
 		List<Object> errorMessageObject = null;
-		pets = userService.authenticateUser(userName, userPassword);
 		ResponseEntity<List<Object>> responseEntity = null;
-		LOGGER.info("UserServiceInterface loginUser Method Return Result");
-		if (pets != null) {
-			LOGGER.info("UserServiceInterface loginUser Method Return Result List<Pet> Not Null Its Contains Data");
-			List<Object> petObjects = new ArrayList<Object>();
-			petObjects.addAll(pets);
-			responseEntity = new ResponseEntity<List<Object>>(petObjects, HttpStatus.OK);
-			return responseEntity;
-		} else {
-			errorMessageObject = new ArrayList<Object>();
-			errorMessageObject.add("Login Failed Check Your User Name And Password");
-			responseEntity = new ResponseEntity<List<Object>>(errorMessageObject, HttpStatus.BAD_REQUEST);
-			LOGGER.info("Login Failed Check Your User Name And Password");
+		try {
+			pets = userService.authenticateUser(userName, userPassword);
+			LOGGER.info("UserServiceInterface loginUser Method Return Result");
+			if (pets != null) {
+				LOGGER.info("UserServiceInterface loginUser Method Return Result List<Pet> Not Null Its Contains Data");
+				List<Object> petObjects = new ArrayList<Object>();
+				petObjects.addAll(pets);
+				responseEntity = new ResponseEntity<List<Object>>(petObjects, HttpStatus.OK);
+				return responseEntity;
+			} else {
+				errorMessageObject = new ArrayList<Object>();
+				errorMessageObject.add("Login Failed Check Your User Name And Password");
+				responseEntity = new ResponseEntity<List<Object>>(errorMessageObject, HttpStatus.BAD_REQUEST);
+				LOGGER.info("Login Failed Check Your User Name And Password");
 
+			}
+
+		} catch (AppliactionException e) {
+
+			System.err.println(e.getMessage());
 		}
 
 		LOGGER.info("UsersController loginUser Method End");
@@ -84,14 +97,18 @@ public class UsersController {
 		ResponseMessage responseMessage = new ResponseMessage();
 		String loginStatus = null;
 		ResponseEntity<ResponseMessage> responseEntity = null;
-		loginStatus = userService.loginApp(userName, userPassword);
-		if (loginStatus != null) {
-			responseMessage.setMessage(loginStatus);
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.OK);
-		} else {
-			loginStatus = "Login Failed Check Your User Name And Password";
-			responseMessage.setMessage(loginStatus);
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.OK);
+		try {
+			loginStatus = userService.loginApp(userName, userPassword);
+			if (loginStatus != null) {
+				responseMessage.setMessage(loginStatus);
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.OK);
+			} else {
+				loginStatus = "Login Failed Check Your User Name And Password";
+				responseMessage.setMessage(loginStatus);
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.OK);
+			}
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
 
 		return responseEntity;
@@ -102,22 +119,27 @@ public class UsersController {
 	public ResponseEntity<List<Object>> listUsers() {
 		LOGGER.info("Client Send The Requset" + " " + "URL" + "/users" + "listUsers Method Start");
 		List<User> users = null;
-		List<Object> errorMessageObject = null;
-		users = userService.listUsers();
 		ResponseEntity<List<Object>> responseEntity = null;
-		LOGGER.info("UserServiceInterface listUsers Method Return Result");
-		if (users != null) {
-			LOGGER.info("UserServiceInterface listUsers Method Return Result List<User>  List Contains Data");
-			List<Object> userObject = new ArrayList<Object>();
-			userObject.addAll(users);
-			responseEntity = new ResponseEntity<List<Object>>(userObject, HttpStatus.FOUND);
-			return responseEntity;
-		} else {
-			errorMessageObject = new ArrayList<Object>();
-			errorMessageObject.add("Cureently User Table Is Empty");
-			responseEntity = new ResponseEntity<List<Object>>(errorMessageObject, HttpStatus.BAD_REQUEST);
-			LOGGER.info("Login Failed Check Your User Name And Password");
+		List<Object> errorMessageObject = null;
+		try {
+			users = userService.listUsers();
+			LOGGER.info("UserServiceInterface listUsers Method Return Result");
+			if (users != null) {
+				LOGGER.info("UserServiceInterface listUsers Method Return Result List<User>  List Contains Data");
+				List<Object> userObject = new ArrayList<Object>();
+				userObject.addAll(users);
+				responseEntity = new ResponseEntity<List<Object>>(userObject, HttpStatus.FOUND);
+				return responseEntity;
+			} else {
+				errorMessageObject = new ArrayList<Object>();
+				errorMessageObject.add("Cureently User Table Is Empty");
+				responseEntity = new ResponseEntity<List<Object>>(errorMessageObject, HttpStatus.BAD_REQUEST);
+				LOGGER.info("Login Failed Check Your User Name And Password");
 
+			}
+
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
 
 		LOGGER.info("UsersController listUsers Method End");
@@ -128,12 +150,18 @@ public class UsersController {
 	@DeleteMapping(value = "/delete/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ResponseMessage> deleteUser(@PathVariable long userId) {
 		LOGGER.info("Client Send The Requset" + " " + "URL" + "/delete/" + userId + "deleteUser Method Start");
-		String deleteStatus = userService.deleteUser(userId);
-		ResponseMessage responseMessage = new ResponseMessage();
-		responseMessage.setMessage(deleteStatus);
-		LOGGER.info("UserServiceInterface deleteUser Method Return Result");
-		ResponseEntity<ResponseMessage> responseEntity = new ResponseEntity<ResponseMessage>(responseMessage,
-				HttpStatus.GONE);
+		String deleteStatus = null;
+		ResponseEntity<ResponseMessage> responseEntity = null;
+		try {
+			deleteStatus = userService.deleteUser(userId);
+			ResponseMessage responseMessage = new ResponseMessage();
+			responseMessage.setMessage(deleteStatus);
+			LOGGER.info("UserServiceInterface deleteUser Method Return Result");
+			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.GONE);
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
+		}
+
 		LOGGER.info("UsersController deleteUser Method End");
 		return responseEntity;
 
@@ -144,20 +172,25 @@ public class UsersController {
 		LOGGER.info("Client Send The Requset" + " " + "URL" + "/pets/myPets/" + userId + "myPets Method Start");
 		List<Pet> pets = null;
 		List<Object> errorMessageObject = null;
-		pets = userService.getMyPets(userId);
-		LOGGER.info("UserServiceInterface myPets Method Return Result");
-		if (pets != null && pets.size() > 0) {
-			LOGGER.info("UserServiceInterface myPets Method Return Result List<Pets> List Contains Data");
-			List<Object> petsObjects = new ArrayList<Object>();
-			petsObjects.addAll(pets);
-			return petsObjects;
+		try {
+			pets = userService.getMyPets(userId);
+			LOGGER.info("UserServiceInterface myPets Method Return Result");
+			if (pets != null && pets.size() > 0) {
+				LOGGER.info("UserServiceInterface myPets Method Return Result List<Pets> List Contains Data");
+				List<Object> petsObjects = new ArrayList<Object>();
+				petsObjects.addAll(pets);
+				return petsObjects;
 
-		} else {
-			errorMessageObject = new ArrayList<Object>();
-			errorMessageObject.add("No pets Avalible in DB for this user id");
-			LOGGER.info("No pets Avalible in DB for this user id");
+			} else {
+				errorMessageObject = new ArrayList<Object>();
+				errorMessageObject.add("No pets Avalible in DB for this user id");
+				LOGGER.info("No pets Avalible in DB for this user id");
 
+			}
+		} catch (AppliactionException e) {
+			e.printStackTrace();
 		}
+
 		LOGGER.info("UsersController myPets Method End");
 		return errorMessageObject;
 
@@ -168,19 +201,25 @@ public class UsersController {
 		LOGGER.info("Client Send The Requset" + " " + "URL" + "/pets/buyPet/" + userId + "/ " + petId
 				+ "buyPet Method Start");
 		ResponseEntity<ResponseMessage> responseEntity = null;
-		int numberOfRowAffected = userService.buyPet(userId, petId);
-		ResponseMessage responseMessage = new ResponseMessage();
-		LOGGER.info("UserServiceInterface buyPet Method Return Result");
-		if (numberOfRowAffected > 0) {
-			LOGGER.info("UserServiceInterface buyPet Method Return Result integer Data");
-			responseMessage.setMessage("Add the New pet to the user");
+		int numberOfRowAffected;
+		try {
+			numberOfRowAffected = userService.buyPet(userId, petId);
+			ResponseMessage responseMessage = new ResponseMessage();
+			LOGGER.info("UserServiceInterface buyPet Method Return Result");
+			if (numberOfRowAffected > 0) {
+				LOGGER.info("UserServiceInterface buyPet Method Return Result integer Data");
+				responseMessage.setMessage("Add the New pet to the user");
 
-			return responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.FOUND);
+				return responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.FOUND);
 
-		} else {
-			responseMessage.setMessage("Pet is Already Sold Out");
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.BAD_REQUEST);
-			LOGGER.info("Pet is Already Sold Out");
+			} else {
+				responseMessage.setMessage("Pet is Already Sold Out");
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.BAD_REQUEST);
+				LOGGER.info("Pet is Already Sold Out");
+			}
+
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
 
 		LOGGER.info("UsersController buyPet Method End");
@@ -194,17 +233,22 @@ public class UsersController {
 		LOGGER.info(" Client Send The Requset" + " " + "URL" + "/upadteUser" + "updateUser Start");
 		User userOne = null;
 		ResponseEntity<Object> responseEntity = null;
-		userOne = userService.updateUser(user);
-		LOGGER.info("PetServiceInterface updatePetDetails Method Return Result");
-		if (userOne != null) {
-			responseEntity = new ResponseEntity<Object>(userOne, HttpStatus.ACCEPTED);
+		try {
+			userOne = userService.updateUser(user);
+			if (userOne != null) {
+				responseEntity = new ResponseEntity<Object>(userOne, HttpStatus.ACCEPTED);
 
-		} else {
-			responseEntity = new ResponseEntity<Object>("Upadate Failed Check User Object Details",
-					HttpStatus.BAD_REQUEST);
-			LOGGER.info("Upadate Failed Check User Object Details");
+			} else {
+				responseEntity = new ResponseEntity<Object>("Upadate Failed Check User Object Details",
+						HttpStatus.BAD_REQUEST);
+				LOGGER.info("Upadate Failed Check User Object Details");
 
+			}
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
+		LOGGER.info("PetServiceInterface updatePetDetails Method Return Result");
+
 		LOGGER.info("UserController updateUser Method End");
 		return responseEntity;
 

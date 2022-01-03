@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.lang.NonNull;
@@ -33,8 +34,7 @@ public class Pet implements Serializable {
 	private String name;
 
 	@Column(name = "PET_AGE")
-	@NonNull
-	@NotEmpty(message = "Please Enter PetAge")
+	@Min(1)
 	private int age;
 
 	@Column(name = "PET_PLACE")

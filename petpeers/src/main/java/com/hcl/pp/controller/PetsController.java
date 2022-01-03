@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hcl.exception.AppliactionException;
 import com.hcl.pp.model.Pet;
 import com.hcl.pp.model.ResponseMessage;
 import com.hcl.pp.service.PetService;
@@ -35,17 +36,22 @@ public class PetsController {
 	public ResponseEntity<ResponseMessage> addPet(@Valid @RequestBody Pet pet) {
 		LOGGER.info(" Client Send The Requset" + " " + "URL" + "/pets/addPet" + "addPet Start");
 		ResponseEntity<ResponseMessage> responseEntity = null;
-		String statusOfAddPets = petService.savePet(pet);
-		LOGGER.info("PetServiceInterface addPet Method Return Result Is" + statusOfAddPets);
-		ResponseMessage responseMessage = new ResponseMessage();
-		if (statusOfAddPets != null) {
-			responseMessage.setMessage(statusOfAddPets);
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.CREATED);
-		} else {
-			responseMessage.setMessage("Bad Request Plz Try Onces Again");
-			LOGGER.info("Bad Request Plz Try Onces Again");
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.BAD_REQUEST);
+		String statusOfAddPets = null;
+		try {
+			statusOfAddPets = petService.savePet(pet);
+			LOGGER.info("PetServiceInterface addPet Method Return Result Is" + statusOfAddPets);
+			ResponseMessage responseMessage = new ResponseMessage();
+			if (statusOfAddPets != null) {
+				responseMessage.setMessage(statusOfAddPets);
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.CREATED);
+			} else {
+				responseMessage.setMessage("Bad Request Plz Try Onces Again");
+				LOGGER.info("Bad Request Plz Try Onces Again");
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.BAD_REQUEST);
 
+			}
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
 
 		LOGGER.info("PetController addPet Method End");
@@ -59,19 +65,24 @@ public class PetsController {
 		List<Pet> pets = null;
 		List<Object> errorMessageObject = null;
 		ResponseEntity<List<Object>> responseEntity = null;
-		pets = petService.getAllPets();
-		LOGGER.info("PetServiceInterface petHome Method Return Result");
-		if (pets != null && pets.size() > 0) {
-			List<Object> petObjects = new ArrayList<Object>();
-			petObjects.addAll(pets);
-			responseEntity = new ResponseEntity<List<Object>>(petObjects, HttpStatus.CREATED);
-			return responseEntity;
-		} else {
-			errorMessageObject = new ArrayList<Object>();
-			errorMessageObject.add("No Pets Avalible In DB Table");
-			LOGGER.info("No Pets Avalible In DB Table");
-			responseEntity = new ResponseEntity<List<Object>>(errorMessageObject, HttpStatus.BAD_REQUEST);
+		try {
+			pets = petService.getAllPets();
+			LOGGER.info("PetServiceInterface petHome Method Return Result");
+			if (pets != null && pets.size() > 0) {
+				List<Object> petObjects = new ArrayList<Object>();
+				petObjects.addAll(pets);
+				responseEntity = new ResponseEntity<List<Object>>(petObjects, HttpStatus.CREATED);
+				return responseEntity;
+			} else {
+				errorMessageObject = new ArrayList<Object>();
+				errorMessageObject.add("No Pets Avalible In DB Table");
+				LOGGER.info("No Pets Avalible In DB Table");
+				responseEntity = new ResponseEntity<List<Object>>(errorMessageObject, HttpStatus.BAD_REQUEST);
 
+			}
+
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
 
 		LOGGER.info("PetController petHome Method End");
@@ -85,17 +96,21 @@ public class PetsController {
 		LOGGER.info(" Client Send The Requset" + " " + "URL" + "/pets/petDetail/{petId}" + "petDetail Start");
 		Pet pet = null;
 		ResponseEntity<Object> responseEntity = null;
-		pet = petService.getPetById(petId);
-		LOGGER.info("PetServiceInterface petDetail Method Return Result");
-		if (pet != null) {
-			responseEntity = new ResponseEntity<Object>(pet, HttpStatus.FOUND);
+		try {
+			pet = petService.getPetById(petId);
+			LOGGER.info("PetServiceInterface petDetail Method Return Result");
+			if (pet != null) {
+				responseEntity = new ResponseEntity<Object>(pet, HttpStatus.FOUND);
 
-		} else {
+			} else {
 
-			responseEntity = new ResponseEntity<Object>("Your Passing PetId Details Not Present In DB Plz Check It",
-					HttpStatus.BAD_REQUEST);
-			LOGGER.info("Your Passing PetId Details Not Present In DB Plz Check It");
+				responseEntity = new ResponseEntity<Object>("Your Passing PetId Details Not Present In DB Plz Check It",
+						HttpStatus.BAD_REQUEST);
+				LOGGER.info("Your Passing PetId Details Not Present In DB Plz Check It");
 
+			}
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
 
 		LOGGER.info("PetController petDetail Method End");
@@ -108,17 +123,22 @@ public class PetsController {
 		LOGGER.info(" Client Send The Requset" + " " + "URL" + "/pets/updatePet" + "updatePetDetails Start");
 		Pet petOne = null;
 		ResponseEntity<Object> responseEntity = null;
-		petOne = petService.updatePet(pet);
-		LOGGER.info("PetServiceInterface updatePetDetails Method Return Result");
-		if (petOne != null) {
-			responseEntity = new ResponseEntity<Object>(pet, HttpStatus.ACCEPTED);
+		try {
+			petOne = petService.updatePet(pet);
+			LOGGER.info("PetServiceInterface updatePetDetails Method Return Result");
+			if (petOne != null) {
+				responseEntity = new ResponseEntity<Object>(pet, HttpStatus.ACCEPTED);
 
-		} else {
-			responseEntity = new ResponseEntity<Object>("Upadate Failed Check Pet Object Details",
-					HttpStatus.BAD_REQUEST);
-			LOGGER.info("Upadate Failed Check Pet Object Details");
+			} else {
+				responseEntity = new ResponseEntity<Object>("Upadate Failed Check Pet Object Details",
+						HttpStatus.BAD_REQUEST);
+				LOGGER.info("Upadate Failed Check Pet Object Details");
 
+			}
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
+
 		LOGGER.info("PetController updatePet Method End");
 		return responseEntity;
 
@@ -129,18 +149,22 @@ public class PetsController {
 		LOGGER.info(" Client Send The Requset" + " " + "URL" + "/pets/deletePet/{petId}" + "deletePetById Start");
 		ResponseEntity<ResponseMessage> responseEntity = null;
 		ResponseMessage responseMessage = new ResponseMessage();
-		String statausOfDeletePet = petService.deletePetById(petId);
-		LOGGER.info("PetServiceInterface deletePetById Method Return Result");
+		String statausOfDeletePet = null;
+		try {
+			statausOfDeletePet = petService.deletePetById(petId);
+			if (statausOfDeletePet != null) {
+				responseMessage.setMessage(statausOfDeletePet);
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.GONE);
+			} else {
+				responseMessage.setMessage("Bad Status Plz Try Onces Again");
+				LOGGER.info("Bad Status Plz Try Onces Again");
+				responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.BAD_REQUEST);
 
-		if (statausOfDeletePet != null) {
-			responseMessage.setMessage(statausOfDeletePet);
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.GONE);
-		} else {
-			responseMessage.setMessage("Bad Status Plz Try Onces Again");
-			LOGGER.info("Bad Status Plz Try Onces Again");
-			responseEntity = new ResponseEntity<ResponseMessage>(responseMessage, HttpStatus.BAD_REQUEST);
-
+			}
+		} catch (AppliactionException e) {
+			System.err.println(e.getMessage());
 		}
+		LOGGER.info("PetServiceInterface deletePetById Method Return Result");
 
 		LOGGER.info("PetController deletePetById Method End");
 		return responseEntity;
