@@ -1,0 +1,47 @@
+2022-01-02 14:31:18.400  INFO 660 --- [restartedMain] com.hcl.pet.PeetsApplication             : Starting PeetsApplication using Java 1.8.0_301 on LAPTOP-FJ89OA8Q with PID 660 (E:\Spring Boot Project Work Space\peets\target\classes started by AKASH RONAD in E:\Spring Boot Project Work Space\peets)
+2022-01-02 14:31:18.416  INFO 660 --- [restartedMain] com.hcl.pet.PeetsApplication             : No active profile set, falling back to default profiles: default
+2022-01-02 14:31:18.582  INFO 660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-02 14:31:18.585  INFO 660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-02 14:31:20.521  INFO 660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-02 14:31:20.653  INFO 660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 1 JPA repository interfaces.
+2022-01-02 14:31:22.718  INFO 660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9098 (http)
+2022-01-02 14:31:22.739  INFO 660 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-02 14:31:22.739  INFO 660 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-02 14:31:22.913  INFO 660 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-02 14:31:22.914  INFO 660 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4327 ms
+2022-01-02 14:31:23.307  INFO 660 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-02 14:31:23.404  INFO 660 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-02 14:31:23.689  INFO 660 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-02 14:31:23.884  INFO 660 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-02 14:31:24.185  INFO 660 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-02 14:31:24.220  INFO 660 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-02 14:31:25.428  INFO 660 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-02 14:31:25.443  INFO 660 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-02 14:31:26.224  WARN 660 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-02 14:31:27.069  INFO 660 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-02 14:31:27.119  INFO 660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9098 (http) with context path ''
+2022-01-02 14:31:27.139  INFO 660 --- [restartedMain] com.hcl.pet.PeetsApplication             : Started PeetsApplication in 9.864 seconds (JVM running for 11.042)
+2022-01-02 14:31:27.146  INFO 660 --- [restartedMain] com.hcl.pet.PeetsApplication             : Main Method Start
+2022-01-02 14:33:41.276  INFO 660 --- [http-nio-9098-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-02 14:33:41.278  INFO 660 --- [http-nio-9098-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-02 14:33:41.280  INFO 660 --- [http-nio-9098-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-02 14:33:41.468  INFO 660 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/addPetaddPet Start
+2022-01-02 14:33:41.567  INFO 660 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : PetServiceInterface addPet Method Return Result IsPet Saved Sucessfully
+2022-01-02 14:33:41.569  INFO 660 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : PetController addPet Method End
+2022-01-02 14:34:10.442  INFO 660 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/petspetHome Start
+2022-01-02 14:34:10.661  INFO 660 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetServiceInterface petHome Method Return Result
+2022-01-02 14:34:10.661  INFO 660 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetController petHome Method End
+2022-01-02 14:36:12.724  INFO 660 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/petDetail/{petId}petDetail Start
+2022-01-02 14:36:12.745  INFO 660 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     : PetServiceInterface petDetail Method Return Result
+2022-01-02 14:36:12.745  INFO 660 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     : PetController petDetail Method End
+2022-01-02 14:36:54.781  WARN 660 --- [http-nio-9098-exec-7] o.s.web.servlet.PageNotFound             : Request method 'POST' not supported
+2022-01-02 14:36:54.784  WARN 660 --- [http-nio-9098-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2022-01-02 14:37:13.573  INFO 660 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/updatePetupdatePetDetails Start
+2022-01-02 14:37:13.631  INFO 660 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : PetServiceInterface updatePetDetails Method Return Result
+2022-01-02 14:37:13.631  INFO 660 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : PetController updatePet Method End
+2022-01-02 14:37:45.344  INFO 660 --- [http-nio-9098-exec-9] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/deletePet/{petId}deletePetById Start
+2022-01-02 14:37:45.365  INFO 660 --- [http-nio-9098-exec-9] com.hcl.pet.controller.PetController     : PetServiceInterface deletePetById Method Return Result
+2022-01-02 14:37:45.366  INFO 660 --- [http-nio-9098-exec-9] com.hcl.pet.controller.PetController     : PetController deletePetById Method End
+2022-01-02 14:39:34.115  INFO 660 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/addPetaddPet Start
+2022-01-02 14:39:34.147  INFO 660 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : PetServiceInterface addPet Method Return Result IsPet Saved Sucessfully
+2022-01-02 14:39:34.147  INFO 660 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : PetController addPet Method End

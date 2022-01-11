@@ -1,0 +1,190 @@
+2022-01-07 07:53:39.662  INFO 21200 --- [restartedMain] com.hcl.pet.PeetsApplication             : Starting PeetsApplication using Java 1.8.0_301 on LAPTOP-FJ89OA8Q with PID 21200 (E:\Spring Boot Project Work Space\peets\target\classes started by AKASH RONAD in E:\Spring Boot Project Work Space\peets)
+2022-01-07 07:53:39.922  INFO 21200 --- [restartedMain] com.hcl.pet.PeetsApplication             : No active profile set, falling back to default profiles: default
+2022-01-07 07:53:40.116  INFO 21200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-07 07:53:40.117  INFO 21200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-07 07:53:41.156  INFO 21200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-07 07:53:41.382  INFO 21200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 212 ms. Found 1 JPA repository interfaces.
+2022-01-07 07:53:41.716  INFO 21200 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=adafa51f-e755-309c-8198-4fe9236e5509
+2022-01-07 07:53:42.702  INFO 21200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9098 (http)
+2022-01-07 07:53:42.714  INFO 21200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-07 07:53:42.714  INFO 21200 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-07 07:53:42.850  INFO 21200 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-07 07:53:42.851  INFO 21200 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2732 ms
+2022-01-07 07:53:43.047  INFO 21200 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-07 07:53:43.117  INFO 21200 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-07 07:53:43.319  INFO 21200 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-07 07:53:43.452  INFO 21200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-07 07:53:43.683  INFO 21200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-07 07:53:43.705  INFO 21200 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-07 07:53:44.610  INFO 21200 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-07 07:53:44.622  INFO 21200 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-07 07:53:45.185  WARN 21200 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-07 07:53:45.639  WARN 21200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-01-07 07:53:45.935  INFO 21200 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-01-07 07:53:46.316  WARN 21200 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-07 07:53:46.358  INFO 21200 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-07 07:53:46.466  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-07 07:53:46.473  INFO 21200 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 07:53:46.511  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-07 07:53:46.511  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-07 07:53:46.511  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-07 07:53:46.511  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-07 07:53:46.511  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-07 07:53:46.511  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-07 07:53:46.512  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-07 07:53:47.230  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-07 07:53:47.233  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-07 07:53:47.236  INFO 21200 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-07 07:53:47.243  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1641522227241 with initial instances count: 2
+2022-01-07 07:53:47.245  INFO 21200 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application PEETS-SERVICE with eureka with status UP
+2022-01-07 07:53:47.246  INFO 21200 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1641522227246, current=UP, previous=STARTING]
+2022-01-07 07:53:47.248  INFO 21200 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PEETS-SERVICE/LAPTOP-FJ89OA8Q:peets-service:9098: registering service...
+2022-01-07 07:53:47.294  INFO 21200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9098 (http) with context path ''
+2022-01-07 07:53:47.295  INFO 21200 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9098
+2022-01-07 07:53:47.340  INFO 21200 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PEETS-SERVICE/LAPTOP-FJ89OA8Q:peets-service:9098 - registration status: 204
+2022-01-07 07:53:47.577  INFO 21200 --- [restartedMain] com.hcl.pet.PeetsApplication             : Started PeetsApplication in 8.63 seconds (JVM running for 9.524)
+2022-01-07 07:53:47.583  INFO 21200 --- [restartedMain] com.hcl.pet.PeetsApplication             : Main Method Start Pets
+2022-01-07 07:58:46.524  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:03:46.538  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:08:46.542  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:13:46.549  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:18:46.552  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:23:46.567  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:28:46.574  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:33:46.581  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:37:36.849  INFO 21200 --- [http-nio-9098-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-07 08:37:36.850  INFO 21200 --- [http-nio-9098-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-07 08:37:36.923  INFO 21200 --- [http-nio-9098-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 72 ms
+2022-01-07 08:37:37.145  INFO 21200 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/buyPet/1/ 1buyPet Method Start
+2022-01-07 08:37:37.354  INFO 21200 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : PetServiceInterface buyPet Method Return Result
+2022-01-07 08:37:37.355  INFO 21200 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : Pet is Already Sold Out
+2022-01-07 08:37:37.663  WARN 21200 --- [http-nio-9098-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.hcl.pet.customerror.ApplicationException: Pet is Already Sold Out]
+2022-01-07 08:38:46.584  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:39:04.669  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/myPets/1myPets Method Start
+2022-01-07 08:39:04.698  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result
+2022-01-07 08:39:04.698  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result List<Pets> List Contains Data
+2022-01-07 08:39:04.698  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetController myPets Method End
+2022-01-07 08:39:11.615  INFO 21200 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/myPets/3myPets Method Start
+2022-01-07 08:39:11.618  INFO 21200 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result
+2022-01-07 08:39:11.618  INFO 21200 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : PetController myPets Method End
+2022-01-07 08:41:03.242  INFO 21200 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/addPetaddPet Start
+2022-01-07 08:41:03.326  INFO 21200 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     : PetServiceInterface addPet Method Return Result IsPet Saved Sucessfully
+2022-01-07 08:41:03.326  INFO 21200 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     : PetController addPet Method End
+2022-01-07 08:42:06.351  INFO 21200 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/petspetHome Start
+2022-01-07 08:42:06.636  INFO 21200 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : PetServiceInterface petHome Method Return Result
+2022-01-07 08:42:06.636  INFO 21200 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : PetController petHome Method End
+2022-01-07 08:43:28.823  INFO 21200 --- [http-nio-9098-exec-10] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/petDetail/{petId}petDetail Start
+2022-01-07 08:43:28.841  WARN 21200 --- [http-nio-9098-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.hcl.pet.customerror.ApplicationException: Your Sending Id Not Present In Table]
+2022-01-07 08:43:46.595  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:43:49.870  INFO 21200 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/petDetail/{petId}petDetail Start
+2022-01-07 08:43:49.874  INFO 21200 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : PetServiceInterface petDetail Method Return Result
+2022-01-07 08:43:49.874  INFO 21200 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : PetController petDetail Method End
+2022-01-07 08:48:13.858  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/updatePetupdatePetDetails Start
+2022-01-07 08:48:13.914  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetServiceInterface updatePetDetails Method Return Result
+2022-01-07 08:48:13.915  INFO 21200 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetController updatePet Method End
+2022-01-07 08:48:46.598  INFO 21200 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 08:49:32.686  INFO 21200 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/deletePet/{petId}deletePetById Start
+2022-01-07 08:49:32.703  INFO 21200 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : PetServiceInterface deletePetById Method Return Result
+2022-01-07 08:49:32.703  INFO 21200 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : PetController deletePetById Method End
+2022-01-07 08:49:44.444  INFO 21200 --- [http-nio-9098-exec-5] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/deletePet/{petId}deletePetById Start
+2022-01-07 08:49:44.452  WARN 21200 --- [http-nio-9098-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.hcl.pet.customerror.ApplicationException: Your Passing Pet Id Not Present In Table]
+2022-01-07 08:50:51.668  INFO 21200 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/petspetHome Start
+2022-01-07 08:50:51.672  INFO 21200 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     : PetServiceInterface petHome Method Return Result
+2022-01-07 08:50:51.672  INFO 21200 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     : PetController petHome Method End
+2022-01-07 10:02:42.348  INFO 1620 --- [restartedMain] com.hcl.pet.PeetsApplication             : Starting PeetsApplication using Java 1.8.0_301 on LAPTOP-FJ89OA8Q with PID 1620 (E:\Spring Boot Project Work Space\peets\target\classes started by AKASH RONAD in E:\Spring Boot Project Work Space\peets)
+2022-01-07 10:02:42.350  INFO 1620 --- [restartedMain] com.hcl.pet.PeetsApplication             : No active profile set, falling back to default profiles: default
+2022-01-07 10:02:42.423  INFO 1620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-07 10:02:42.424  INFO 1620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-07 10:02:43.436  INFO 1620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-07 10:02:43.632  INFO 1620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 186 ms. Found 1 JPA repository interfaces.
+2022-01-07 10:02:43.997  INFO 1620 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=adafa51f-e755-309c-8198-4fe9236e5509
+2022-01-07 10:02:45.057  INFO 1620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9098 (http)
+2022-01-07 10:02:45.071  INFO 1620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-07 10:02:45.071  INFO 1620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-07 10:02:45.231  INFO 1620 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-07 10:02:45.232  INFO 1620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2807 ms
+2022-01-07 10:02:45.471  INFO 1620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-07 10:02:45.547  INFO 1620 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-07 10:02:45.762  INFO 1620 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-07 10:02:45.916  INFO 1620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-07 10:02:46.203  INFO 1620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-07 10:02:46.227  INFO 1620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-07 10:02:47.248  INFO 1620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-07 10:02:47.260  INFO 1620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-07 10:02:48.048  WARN 1620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-07 10:02:48.564  WARN 1620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-01-07 10:02:48.926  INFO 1620 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-01-07 10:02:49.321  WARN 1620 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-01-07 10:02:49.368  INFO 1620 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-01-07 10:02:49.475  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-01-07 10:02:49.482  INFO 1620 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:02:49.514  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-01-07 10:02:49.514  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-01-07 10:02:49.515  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-01-07 10:02:49.515  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-01-07 10:02:49.515  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-01-07 10:02:49.515  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-01-07 10:02:49.515  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-01-07 10:02:50.344  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-01-07 10:02:50.349  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-01-07 10:02:50.353  INFO 1620 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-01-07 10:02:50.361  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1641529970359 with initial instances count: 2
+2022-01-07 10:02:50.364  INFO 1620 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application PEETS-SERVICE with eureka with status UP
+2022-01-07 10:02:50.366  INFO 1620 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1641529970365, current=UP, previous=STARTING]
+2022-01-07 10:02:50.369  INFO 1620 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PEETS-SERVICE/LAPTOP-FJ89OA8Q:peets-service:9098: registering service...
+2022-01-07 10:02:50.411  INFO 1620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9098 (http) with context path ''
+2022-01-07 10:02:50.413  INFO 1620 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9098
+2022-01-07 10:02:50.460  INFO 1620 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PEETS-SERVICE/LAPTOP-FJ89OA8Q:peets-service:9098 - registration status: 204
+2022-01-07 10:02:50.725  INFO 1620 --- [restartedMain] com.hcl.pet.PeetsApplication             : Started PeetsApplication in 9.252 seconds (JVM running for 10.0)
+2022-01-07 10:02:50.729  INFO 1620 --- [restartedMain] com.hcl.pet.PeetsApplication             : Main Method Start Pets
+2022-01-07 10:07:49.520  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:12:49.533  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:17:49.539  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:22:49.555  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:27:49.562  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:32:49.575  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:37:49.579  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:39:43.867  INFO 1620 --- [http-nio-9098-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-07 10:39:43.867  INFO 1620 --- [http-nio-9098-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-07 10:39:43.869  INFO 1620 --- [http-nio-9098-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-01-07 10:39:43.899  INFO 1620 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/buyPet/1/ 1buyPet Method Start
+2022-01-07 10:39:44.010  INFO 1620 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : PetServiceInterface buyPet Method Return Result
+2022-01-07 10:39:44.010  INFO 1620 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : Pet is Already Sold Out
+2022-01-07 10:39:44.415  WARN 1620 --- [http-nio-9098-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.hcl.pet.customerror.ApplicationException: Pet is Already Sold Out]
+2022-01-07 10:39:51.166  INFO 1620 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/buyPet/1/ 1buyPet Method Start
+2022-01-07 10:39:51.170  INFO 1620 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : PetServiceInterface buyPet Method Return Result
+2022-01-07 10:39:51.171  INFO 1620 --- [http-nio-9098-exec-2] com.hcl.pet.controller.PetController     : Pet is Already Sold Out
+2022-01-07 10:39:51.172  WARN 1620 --- [http-nio-9098-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.hcl.pet.customerror.ApplicationException: Pet is Already Sold Out]
+2022-01-07 10:40:00.368  INFO 1620 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/myPets/3myPets Method Start
+2022-01-07 10:40:00.401  INFO 1620 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result
+2022-01-07 10:40:00.401  INFO 1620 --- [http-nio-9098-exec-3] com.hcl.pet.controller.PetController     : PetController myPets Method End
+2022-01-07 10:42:49.593  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:47:49.596  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:52:49.612  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 10:57:49.616  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 11:01:46.304  INFO 1620 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/addPetaddPet Start
+2022-01-07 11:01:46.350  INFO 1620 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     : PetServiceInterface addPet Method Return Result IsPet Saved Sucessfully
+2022-01-07 11:01:46.350  INFO 1620 --- [http-nio-9098-exec-6] com.hcl.pet.controller.PetController     : PetController addPet Method End
+2022-01-07 11:02:06.434  INFO 1620 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/buyPet/1/ 5buyPet Method Start
+2022-01-07 11:02:06.442  INFO 1620 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     : PetServiceInterface buyPet Method Return Result
+2022-01-07 11:02:06.442  INFO 1620 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     : PetServiceInterface buyPet Method Return Result Integer Data
+2022-01-07 11:02:06.442  INFO 1620 --- [http-nio-9098-exec-7] com.hcl.pet.controller.PetController     : Pet Controller buyPet Method End
+2022-01-07 11:02:13.604  INFO 1620 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/buyPet/1/ 5buyPet Method Start
+2022-01-07 11:02:13.611  INFO 1620 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : PetServiceInterface buyPet Method Return Result
+2022-01-07 11:02:13.611  INFO 1620 --- [http-nio-9098-exec-8] com.hcl.pet.controller.PetController     : Pet is Already Sold Out
+2022-01-07 11:02:13.613  WARN 1620 --- [http-nio-9098-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.hcl.pet.customerror.ApplicationException: Pet is Already Sold Out]
+2022-01-07 11:02:25.375  INFO 1620 --- [http-nio-9098-exec-9] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/myPets/5myPets Method Start
+2022-01-07 11:02:25.381  INFO 1620 --- [http-nio-9098-exec-9] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result
+2022-01-07 11:02:25.381  INFO 1620 --- [http-nio-9098-exec-9] com.hcl.pet.controller.PetController     : PetController myPets Method End
+2022-01-07 11:02:39.983  INFO 1620 --- [http-nio-9098-exec-10] com.hcl.pet.controller.PetController     : Client Send The Requset URL/pets/myPets/1myPets Method Start
+2022-01-07 11:02:39.987  INFO 1620 --- [http-nio-9098-exec-10] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result
+2022-01-07 11:02:39.987  INFO 1620 --- [http-nio-9098-exec-10] com.hcl.pet.controller.PetController     : PetServiceInterface myPets Method Return Result List<Pets> List Contains Data
+2022-01-07 11:02:39.988  INFO 1620 --- [http-nio-9098-exec-10] com.hcl.pet.controller.PetController     : PetController myPets Method End
+2022-01-07 11:02:49.626  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-07 11:03:05.989  INFO 1620 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/petspetHome Start
+2022-01-07 11:03:06.166  INFO 1620 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : PetServiceInterface petHome Method Return Result
+2022-01-07 11:03:06.167  INFO 1620 --- [http-nio-9098-exec-1] com.hcl.pet.controller.PetController     : PetController petHome Method End
+2022-01-07 11:05:04.156  INFO 1620 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     :  Client Send The Requset URL/pets/deletePet/{petId}deletePetById Start
+2022-01-07 11:05:04.168  INFO 1620 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : PetServiceInterface deletePetById Method Return Result
+2022-01-07 11:05:04.169  INFO 1620 --- [http-nio-9098-exec-4] com.hcl.pet.controller.PetController     : PetController deletePetById Method End
+2022-01-07 11:07:49.629  INFO 1620 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
